@@ -13,18 +13,12 @@ import "./dashboard.css"
 
 function AddDashboard() {
   
-  const [data,setData] = useState()
+  const [data,setData] = useStateIfMounted()
 
   useEffect(() => {
-    let isMounted = true;
     api.getProjects().then((res) => {
-      if(isMounted ){
      setData(res)
-      }
     });
-    return () => {
-      isMounted = false;
-      };
   }, []);
   
   const value = data?.map(item => item.budget).reduce((prev, curr) => prev + curr, 0).toLocaleString('pt-BR', {

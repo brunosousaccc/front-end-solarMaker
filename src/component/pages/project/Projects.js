@@ -68,19 +68,13 @@ function handleColumnProjectList(handleDelete) {
 
 function Project() {
 
-    var [project, setProject] = useState({ data: [], count: 0 });
-    var [options, setOptions] = useState({ skip: 0, limit: 10 });
+    var [project, setProject] = useStateIfMounted({ data: [], count: 0 });
+    var [options, setOptions] = useStateIfMounted({ skip: 0, limit: 10 });
 
     useEffect(() => {
-      let isMounted = true;
       api.getProjects().then((res) => {
-        if(isMounted ){
         setProject({ data: res, count: res.len });
-        }
       });
-      return () => {
-        isMounted = false;
-        };
     }, [options]);
     
     const handleDelete = (id) => {
@@ -144,19 +138,13 @@ function Project() {
     )
 }
 function FormProjectDashboard(){
-  var [project, setProject] = useState({ data: [], count: 0 });
-  var [options, setOptions] = useState({ skip: 0, limit: 10 });
+  var [project, setProject] = useStateIfMounted({ data: [], count: 0 });
+  var [options, setOptions] = useStateIfMounted({ skip: 0, limit: 10 });
 
   useEffect(() => {
-    let isMounted = true;
     api.getProjects().then((res) => {
-      if(isMounted ){
       setProject({ data: res, count: res.len });
-      }
     });
-    return () => {
-      isMounted = false;
-      };
   }, [options]);
 
   const handleDelete = (id) => {

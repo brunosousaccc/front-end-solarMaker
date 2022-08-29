@@ -51,19 +51,13 @@ function handleColumnUserList(handleDelete) {
 }
 
 function User() {
-    var [user, setUser] = useState({ data: [], count: 0 });
-    var [options, setOptions] = useState({ skip: 0, limit: 10 });
+    var [user, setUser] = useStateIfMounted({ data: [], count: 0 });
+    var [options, setOptions] = useStateIfMounted({ skip: 0, limit: 10 });
     
     useEffect(() => {
-      let isMounted = true;
       api.getUsers().then((res) => {
-        if(isMounted ){
         setUser({ data: res, count: res.len });
-        }
       });
-      return () => {
-        isMounted = false;
-        };
     }, [options]);
     const handleDelete = (id) => {
        api.deleteUser(id).then((res) => {

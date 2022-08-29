@@ -57,19 +57,13 @@ function handleColumnClientList(handleDelete) {
 }
 
 function Client() {
-  var [client, setClient] = useState({ data: [], count: 0 });
-  var [options, setOptions] = useState({ skip: 0, limit: 10 });
+  var [client, setClient] = useStateIfMounted({ data: [], count: 0 });
+  var [options, setOptions] = useStateIfMounted({ skip: 0, limit: 10 });
 
   useEffect(() => {
-    let isMounted = true;
-    api.getClients().then((res) => {
-      if(isMounted ){
+    api.getClients().then((res) => {z
       setClient({ data: res, count: res.len });
-      }
     });
-    return () => {
-      isMounted = false;
-      };
   }, [options]);
 
 
