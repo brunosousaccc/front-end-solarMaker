@@ -55,9 +55,15 @@ function User() {
     var [options, setOptions] = useState({ skip: 0, limit: 10 });
     
     useEffect(() => {
+      let isMounted = true;
       api.getUsers().then((res) => {
+        if(isMounted ){
         setUser({ data: res, count: res.len });
+        }
       });
+      return () => {
+        isMounted = false;
+        };
     }, [options]);
     const handleDelete = (id) => {
        api.deleteUser(id).then((res) => {

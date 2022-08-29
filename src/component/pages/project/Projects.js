@@ -72,9 +72,15 @@ function Project() {
     var [options, setOptions] = useState({ skip: 0, limit: 10 });
 
     useEffect(() => {
+      let isMounted = true;
       api.getProjects().then((res) => {
+        if(isMounted ){
         setProject({ data: res, count: res.len });
+        }
       });
+      return () => {
+        isMounted = false;
+        };
     }, [options]);
     
     const handleDelete = (id) => {
@@ -142,9 +148,15 @@ function FormProjectDashboard(){
   var [options, setOptions] = useState({ skip: 0, limit: 10 });
 
   useEffect(() => {
+    let isMounted = true;
     api.getProjects().then((res) => {
+      if(isMounted ){
       setProject({ data: res, count: res.len });
+      }
     });
+    return () => {
+      isMounted = false;
+      };
   }, [options]);
 
   const handleDelete = (id) => {

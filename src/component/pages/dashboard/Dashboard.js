@@ -16,9 +16,15 @@ function AddDashboard() {
   const [data,setData] = useState()
 
   useEffect(() => {
+    let isMounted = true;
     api.getProjects().then((res) => {
+      if(isMounted ){
      setData(res)
+      }
     });
+    return () => {
+      isMounted = false;
+      };
   }, []);
   
   const value = data?.map(item => item.budget).reduce((prev, curr) => prev + curr, 0).toLocaleString('pt-BR', {

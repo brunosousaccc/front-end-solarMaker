@@ -61,9 +61,15 @@ function Client() {
   var [options, setOptions] = useState({ skip: 0, limit: 10 });
 
   useEffect(() => {
+    let isMounted = true;
     api.getClients().then((res) => {
+      if(isMounted ){
       setClient({ data: res, count: res.len });
+      }
     });
+    return () => {
+      isMounted = false;
+      };
   }, [options]);
 
 

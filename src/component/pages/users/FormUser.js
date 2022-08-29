@@ -40,6 +40,7 @@ function User(){
         id = location.state.id;
     }
     useEffect(() => {
+        let isMounted = true;
         if (typeof id === "undefined") return;
             api.getUser(id).then((res) => {
                 let user = {
@@ -49,8 +50,13 @@ function User(){
                     is_staff: res.is_staff,
                     is_superuser: res.is_superuser
                 }
+                if(isMounted ){
                 setUsers(user);
+                }
             });
+            return () => {
+                isMounted = false;
+                };
     }, [id]);
     
     const handleSendNewUsers = () => {
