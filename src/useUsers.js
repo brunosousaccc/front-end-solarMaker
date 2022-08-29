@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useStateIfMounted} from "react";
 import api from "./service/api"
 
 export default function useUsers() {
@@ -8,8 +8,8 @@ export default function useUsers() {
     return userToken?.token;
   };
 
-  const [token] = useState(getToken());
-  const [user, setUser] = useState();
+  const [token] = useStateIfMounted(getToken());
+  const [user, setUser] = useStateIfMounted();
   
   if(token !== undefined){
     api.getUsers().then((res) => {

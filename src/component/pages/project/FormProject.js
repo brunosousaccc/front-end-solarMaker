@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useStateIfMounted} from "react";
 import {Navbar, Row, Col, Tabs, Tab, Container, Form, Button} from "react-bootstrap"
 import { Link, useNavigate } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
@@ -10,7 +10,7 @@ import "./project.css"
 function Project(){
     const navigate = useNavigate();
 
-    const [project, setProject] = useState({
+    const [project, setProject] = useStateIfMounted({
         project_name: "",
         client: "",
         description: "",

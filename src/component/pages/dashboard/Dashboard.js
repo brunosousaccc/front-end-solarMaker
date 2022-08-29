@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useStateIfMounted } from "react";
 import { Navbar, Row, Col, Button, Container, Card, Popover, ButtonToolbar, OverlayTrigger } from "react-bootstrap";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import BottomHeader from "../../layout/BottomHeader";
@@ -239,9 +239,9 @@ function FilterPeriodButton(props) {
 
 
 function Dashboard() {
-    var [project, setProject] = useState({ data: [], count: 0 });
-    var [options, setOptions] = useState({ skip: 0, limit: 10 });
-    const [checkPeriod, setCheckPeriod] = useState(null);
+    var [project, setProject] = useStateIfMounted({ data: [], count: 0 });
+    var [options, setOptions] = useStateIfMounted({ skip: 0, limit: 10 });
+    const [checkPeriod, setCheckPeriod] = useStateIfMounted(null);
 
     const handleDelete = (id) => {
     };

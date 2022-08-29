@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useStateIfMounted} from "react";
 import {Navbar, Row, Col, Tabs, Tab, Container, Form, Button} from "react-bootstrap"
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
@@ -11,7 +11,7 @@ function User(){
     const navigate = useNavigate();
     const location = useLocation();
 
-    const [users, setUsers] = useState({
+    const [users, setUsers] = useStateIfMounted({
         username: "",
         email: "",
         password: "",
@@ -40,7 +40,6 @@ function User(){
         id = location.state.id;
     }
     useEffect(() => {
-        let isMounted = true;
         if (typeof id === "undefined") return;
             api.getUser(id).then((res) => {
                 let user = {
@@ -50,13 +49,8 @@ function User(){
                     is_staff: res.is_staff,
                     is_superuser: res.is_superuser
                 }
-                if(isMounted ){
                 setUsers(user);
-                }
             });
-            return () => {
-                isMounted = false;
-                };
     }, [id]);
     
     const handleSendNewUsers = () => {

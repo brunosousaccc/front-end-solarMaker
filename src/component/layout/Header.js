@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useStateIfMounted} from "react";
 import {
   Navbar,
   Container,
@@ -18,7 +18,7 @@ import "./header.css";
 
 function ProfileButton(props) {
   console.log(props)
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useStateIfMounted(false);
 
   const handleClick = () => {
     setShow(!show);

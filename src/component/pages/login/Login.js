@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useStateIfMounted} from "react";
 import { Form, Row, Col, Container, Card } from "react-bootstrap";
 import PropTypes from "prop-types";
 import auth from "../../../service/authenticateUser"
@@ -66,9 +66,9 @@ function ContainerForm(props) {
 }
 
 function Login({ setToken }) {
-  const [username, setUserName] = useState("");
-  const [password, setPassword] = useState("");
-  const [invalid, setInvalid] = useState(false);
+  const [username, setUserName] = useStateIfMounted("");
+  const [password, setPassword] = useStateIfMounted("");
+  const [invalid, setInvalid] = useStateIfMounted(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

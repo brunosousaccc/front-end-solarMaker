@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useStateIfMounted } from "react";
 import DataTable from "react-data-table-component";
 
 import "./tableCustom.css";
@@ -29,8 +29,8 @@ const customStyles = {
 
 function TableCustom(props) {
 
-  const [skip, setSkip] = useState(0);
-  const [limit, setLimit] = useState(10);
+  const [skip, setSkip] = useStateIfMounted(0);
+  const [limit, setLimit] = useStateIfMounted(10);
 
   return (
     <>
