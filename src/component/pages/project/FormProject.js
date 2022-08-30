@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import BottomHeader from "../../layout/BottomHeader";
 import { toast } from 'react-toastify';
-import api from "../../../service/api"
+
 import "./project.css"
 
 function Project(){

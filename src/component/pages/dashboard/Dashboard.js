@@ -8,19 +8,12 @@ import EditIcon from "@mui/icons-material/Edit";
 import CheckIcon from "@mui/icons-material/Check";
 import SortIcon from "@mui/icons-material/Sort";
 import { Link } from "react-router-dom";
-import api from "../../../service/api"
+
 
 import "./dashboard.css"
 
 function AddDashboard() {
   
-  const [data,setData] = useStateIfMounted()
-
-  useEffect(() => {
-    api.getProjects().then((res) => {
-     setData(res)
-    });
-  }, []);
   
   const value = data?.map(item => item.budget).reduce((prev, curr) => prev + curr, 0).toLocaleString('pt-BR', {
     minimumFractionDigits: 2,

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useStateIfMounted } from "use-state-if-mounted";
-import api from "./service/api"
+
 
 export default function useUsers() {
   const getToken= () => {

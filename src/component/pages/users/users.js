@@ -9,7 +9,6 @@ import EditIcon from "@mui/icons-material/Edit";
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { toast } from 'react-toastify';
-import api from "../../../service/api"
 import "./users.css"
 
 function handleColumnUserList(handleDelete) {
@@ -52,24 +51,7 @@ function handleColumnUserList(handleDelete) {
 }
 
 function User() {
-    var [user, setUser] = useStateIfMounted({ data: [], count: 0 });
-    var [options, setOptions] = useStateIfMounted({ skip: 0, limit: 10 });
-    
-    useEffect(() => {
-      api.getUsers().then((res) => {
-        setUser({ data: res, count: res.len });
-      });
-    }, [options]);
-    const handleDelete = (id) => {
-       api.deleteUser(id).then((res) => {
-        toast.success("Deletado com sucesso");
-        api.getUsers().then((res) => {
-          setUser({ data: res, count: res.len });
-        });
-      }).catch((e) => {
-        toast.error(`Error ao deletar Usuário`);
-      }) 
-    };
+
 
     return (
         <>

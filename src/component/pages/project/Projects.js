@@ -8,7 +8,6 @@ import TableCustom from "../../table/TableCustom"
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { toast } from 'react-toastify';
-import api from "../../../service/api"
 import AddIcon from "@mui/icons-material/Add";
 
 import "./projects.css"
@@ -72,23 +71,8 @@ function Project() {
     var [project, setProject] = useStateIfMounted({ data: [], count: 0 });
     var [options, setOptions] = useStateIfMounted({ skip: 0, limit: 10 });
 
-    useEffect(() => {
-      api.getProjects().then((res) => {
-        setProject({ data: res, count: res.len });
-      });
-    }, [options]);
+
     
-    const handleDelete = (id) => {
-      console.log(id)
-      api.deleteProjects(id).then((res) => {
-        toast.success("Deletado com sucesso");
-        api.getProjects().then((res) => {
-          setProject({ data: res, count: res.len });
-        });
-      }).catch((e) => {
-        toast.error(`Error ao deletar projeto`);
-      }) 
-    };
 
     return (
         <>
