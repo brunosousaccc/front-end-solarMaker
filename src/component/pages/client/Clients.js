@@ -61,23 +61,9 @@ function Client() {
   var [client, setClient] = useStateIfMounted({ data: [], count: 0 });
   var [options, setOptions] = useStateIfMounted({ skip: 0, limit: 10 });
 
-  useEffect(() => {
-    api.getClients().then((res) => {
-      setClient({ data: res, count: res.len });
-    });
-  }, [options]);
 
 
-  const handleDelete = (id) => {
-    api.deleteClients(id).then(() => {
-      api.getClients().then((res) => {
-        setClient({ data: res, count: res.len });
-      });
-      toast.success("Cliente deletado com Sucesso")
-    }).catch((e) => {
-      toast.error(`Erro ao deletar cliente`);
-    })
-  };
+
 
   return (
       <>

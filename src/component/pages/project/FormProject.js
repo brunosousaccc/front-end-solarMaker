@@ -34,26 +34,7 @@ function Project(){
         }))
     }
 
-    const handleSendNewProject = () => {
-        if(project.client === "" || project.client.length > 14 || project.client.length < 11 ){
-            toast.warning(`CPF/CNPJ Invalido`);
-        }else {
-            api.getClient(project.client)
-            .then((res) => {
-                api.sendProjects(project)
-                .then((res) => {
-                    toast.success("Projeto cadastrado com sucesso");
-                    navigate("/Projects");
-                })
-                .catch((e) => {
-                    toast.error("Error: Não foi possível cadastrar projeto");
-                });
-            })
-            .catch((e) => {
-                toast.warning(`Cliente não está cadastrado`);
-            });
-        }
-    }
+
     
     const FormNewProject = () => {
         return (

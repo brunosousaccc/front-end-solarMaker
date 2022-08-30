@@ -12,11 +12,7 @@ export default function useUsers() {
   const [token] = useStateIfMounted(getToken());
   const [user, setUser] = useStateIfMounted();
   
-  if(token !== undefined){
-    api.getUsers().then((res) => {
-        setUser(res[0].is_superuser);
-    });
-  }
+
 
   return {
     user

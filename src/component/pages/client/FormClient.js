@@ -43,17 +43,6 @@ function FormClient(){
             toast.warning(`Endereço obrigatório`);
         }else if(clients.cpf_cnpj === "" || clients.cpf_cnpj.length > 14 || clients.cpf_cnpj.length < 11 ){
             toast.warning(`CPF/CNPJ Invalido`);
-        }else {
-            api
-            .sendClients(clients)
-            .then((res) => {
-                toast.success("Cliente cadastrado com sucesso!")
-                navigate("/Clients");
-            })
-            .catch((e) => {
-                console.log(e)
-                toast.error(`Erro ao cadastrar cliente!`);
-            });
         }
         
     }

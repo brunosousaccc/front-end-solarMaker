@@ -29,13 +29,6 @@ function ProfileButton(props) {
     setShow(!show);
   }
 
-  const handleLogout = () => {
-    try {
-      api.refreshToken();
-    } catch (err) {
-      console.log("Coult not handle logout", err)
-    }
-  }
 
   const popoverBody = (
     <Popover id="popover-contained">

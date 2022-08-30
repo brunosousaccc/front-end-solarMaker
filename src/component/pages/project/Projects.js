@@ -72,23 +72,7 @@ function Project() {
     var [project, setProject] = useStateIfMounted({ data: [], count: 0 });
     var [options, setOptions] = useStateIfMounted({ skip: 0, limit: 10 });
 
-    useEffect(() => {
-      api.getProjects().then((res) => {
-        setProject({ data: res, count: res.len });
-      });
-    }, [options]);
-    
-    const handleDelete = (id) => {
-      console.log(id)
-      api.deleteProjects(id).then((res) => {
-        toast.success("Deletado com sucesso");
-        api.getProjects().then((res) => {
-          setProject({ data: res, count: res.len });
-        });
-      }).catch((e) => {
-        toast.error(`Error ao deletar projeto`);
-      }) 
-    };
+
 
     return (
         <>
@@ -142,23 +126,7 @@ function FormProjectDashboard(){
   var [project, setProject] = useStateIfMounted({ data: [], count: 0 });
   var [options, setOptions] = useStateIfMounted({ skip: 0, limit: 10 });
 
-  useEffect(() => {
-    api.getProjects().then((res) => {
-      setProject({ data: res, count: res.len });
-    });
-  }, [options]);
 
-  const handleDelete = (id) => {
-    console.log(id)
-    api.deleteProjects(id).then((res) => {
-      toast.success("Deletado com sucesso");
-      api.getProjects().then((res) => {
-        setProject({ data: res, count: res.len });
-      });
-    }).catch((e) => {
-      toast.error(`Error ao deletar projeto`);
-    }) 
-  };
 
   return (
       <>
