@@ -1,4 +1,4 @@
-
+import useStateIfMounted from 'useStateIfMounted'
 
 export default function useToken() {
   const getToken = () => {
