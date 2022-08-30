@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useStateIfMounted } from "use-state-if-mounted";
 import { Form, Row, Col, Container, Card } from "react-bootstrap";
 import PropTypes from "prop-types";
-import auth from "../../../service/authenticateUser"
 import "./login.css";
 
 
