@@ -104,9 +104,6 @@ function User(){
                         </Form>
                     </Container>
                     <div className="d-flex justify-content-end pb-4">
-                            <Button onClick={handleSendNewUsers} className="save-button-form">
-                                {typeof id === "undefined" ? "Cadastrar" : "Atualizar"}
-                            </Button>
                     </div>
                 </Tab>
             </Tabs>

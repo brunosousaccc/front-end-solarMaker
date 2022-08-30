@@ -53,7 +53,7 @@ function handleColumnProjectList(handleDelete) {
             >
             <EditIcon className="me-3" type="button" style={{color: "#ff7a00"}}/>
             </Link>
-            <DeleteIcon onClick={() => {handleDelete(row.id)}}></DeleteIcon>
+            
           </div>
         ),
         maxWidth: "130px",
@@ -110,12 +110,7 @@ function Project() {
               </div>
               <div className="mt-3">
                   <TableCustom
-                      data={project.data}
-                      columns={handleColumnProjectList(handleDelete)}
-                      onPaginationChanged={(skip, limit) => {
-                      setOptions({ skip, limit });
-                      }}
-                      total={project.count}
+                      
                   />
               </div>
             </Container>
@@ -150,7 +145,7 @@ function FormProjectDashboard(){
             <div className="mt-3">
                 <TableCustom
                     data={project.data}
-                    columns={handleColumnProjectList(handleDelete)}
+                    columns={project.data}
                     onPaginationChanged={(skip, limit) => {
                     setOptions({ skip, limit });
                     }}

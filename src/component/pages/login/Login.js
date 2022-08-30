@@ -68,12 +68,6 @@ function Login({ setToken }) {
   return (
     <div id="login_root">
       <ContainerForm
-        handleSubmit={handleSubmit}
-        username={username}
-        password={password}
-        invalid={invalid}
-        setUserName={setUserName}
-        setPassword={setPassword}
       />
       <Footer />
     </div>

@@ -11,7 +11,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { toast } from 'react-toastify';
 import "./users.css"
 
-function handleColumnUserList(handleDelete) {
+function handleColumnUserList() {
     const columns = [
       {
         name: "Nome",
@@ -37,7 +37,7 @@ function handleColumnUserList(handleDelete) {
             >
               <EditIcon className="me-3" style={{color: "#ff7a00"}} />
             </Link>
-            <DeleteIcon  onClick={() => {handleDelete(row.id)}} /> 
+           
           </div>
         ),
         maxWidth: "130px",
@@ -89,12 +89,7 @@ function User() {
               </div>
               <div className="mt-3">
                 <TableCustom
-                    data={user.data}
-                    columns={handleColumnUserList(handleDelete)}
-                    onPaginationChanged={(skip, limit) => {
-                    setOptions({ skip, limit });
-                    }}
-                    total={user.count}
+                  
                 />
               </div> 
             </Container>
