@@ -62,8 +62,10 @@ function Client() {
   var [options, setOptions] = useStateIfMounted({ skip: 0, limit: 10 });
 
 
+  const handleDelete = (id) => {
+        setClient(0);
 
-
+  };
 
   return (
       <>

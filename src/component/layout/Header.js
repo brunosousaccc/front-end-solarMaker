@@ -59,7 +59,7 @@ function ProfileButton(props) {
           <Row>
             <Col sm="auto px-0 ps-3">
               <LogoutIcon style={{ color: "#DB1F1F" }} />{" "}
-                <span className="text-danger style-options" onClick={handleLogout}>
+                <span className="text-danger style-options" onClick={handleShowPopover}>
                     Sair
                 </span>
             </Col>

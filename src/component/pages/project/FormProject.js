@@ -97,9 +97,6 @@ function Project(){
                             </Form.Group>
                         </Form>
                         <div className="d-flex justify-content-end pb-4">
-                            <Button onClick={handleSendNewProject} className="save-button-form">
-                                Cadastrar
-                            </Button>
                         </div>
                     </Container>
                 </Tab>
