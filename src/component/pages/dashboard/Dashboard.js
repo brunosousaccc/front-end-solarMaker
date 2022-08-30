@@ -23,7 +23,7 @@ function AddDashboard() {
                     <Card.Header className="title-style" style={{ backgroundColor: "#00ad6b"}}>Entrada</Card.Header>
                     <Card.Body>
                         <div>
-                            <h3 className="h3-color">R$ {value}</h3>
+                            <h3 className="h3-color">R$ </h3>
                         </div>
                     </Card.Body>
                 </Card>
@@ -43,7 +43,7 @@ function AddDashboard() {
                     <Card.Header className="title-style" style={{ backgroundColor: "#48aeee"}}  >Total</Card.Header>
                     <Card.Body>
                         <div>
-                            <h3 className="h3-color">R$ {value}</h3>
+                            <h3 className="h3-color">R$ </h3>
                         </div>
                     </Card.Body>
                 </Card>
