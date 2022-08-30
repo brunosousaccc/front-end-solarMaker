@@ -1,4 +1,4 @@
-import useStateIfMounted from 'useStateIfMounted'
+import { useStateIfMounted } from "use-state-if-mounted";
 import DataTable from "react-data-table-component";
 
 import "./tableCustom.css";

@@ -1,4 +1,4 @@
-import useStateIfMounted from 'useStateIfMounted'
+import { useStateIfMounted } from "use-state-if-mounted";
 import api from "./service/api"
 
 export default function useUsers() {
