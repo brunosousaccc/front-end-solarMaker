@@ -24,6 +24,7 @@
     "react-scripts": "5.0.1",
     "react-toastify": "^9.0.8",
     "styled-components": "^5.3.5",
+    "use-state-if-mounted": "^1.0.7",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
