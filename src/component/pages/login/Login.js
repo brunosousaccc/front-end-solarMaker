@@ -5,9 +5,6 @@ import PropTypes from "prop-types";
 import auth from "../../../service/authenticateUser"
 import "./login.css";
 
-async function loginUser(username, password) {
-  return await auth.authenticateUser(username, password);
-}
 
 function Footer() {
   return (
@@ -67,23 +64,7 @@ function ContainerForm(props) {
 }
 
 function Login({ setToken }) {
-  const [username, setUserName] = useStateIfMounted("");
-  const [password, setPassword] = useStateIfMounted("");
-  const [invalid, setInvalid] = useStateIfMounted(false);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const token = await loginUser(username, password);
-      setToken(token);
-      document.location.reload(true)
-    } catch (err) {
-      setUserName("");
-      setPassword("");
-      setInvalid(true);
-      console.log("Could not handle login", err);
-    }
-  };
 
   return (
     <div id="login_root">
