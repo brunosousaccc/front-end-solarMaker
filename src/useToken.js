@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { useStateIfMounted } from "use-state-if-mounted";
+
 export default function useToken() {
   const getToken = () => {
     const tokenString = localStorage.getItem("token");

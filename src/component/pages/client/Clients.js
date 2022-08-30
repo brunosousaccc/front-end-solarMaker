@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import { useStateIfMounted } from "use-state-if-mounted";
 import { Navbar, Row, Col, Form, Button, Container } from "react-bootstrap"
 import BottomHeader from "../../layout/BottomHeader";
@@ -61,7 +62,7 @@ function Client() {
   var [options, setOptions] = useStateIfMounted({ skip: 0, limit: 10 });
 
   useEffect(() => {
-    api.getClients().then((res) => {z
+    api.getClients().then((res) => {
       setClient({ data: res, count: res.len });
     });
   }, [options]);
